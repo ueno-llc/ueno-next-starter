@@ -13,6 +13,6 @@ export default class App extends NextApp {
           <Component {...pageProps} />
         </AppLayout>
       </Container>
-    )
+    );
   }
 }
