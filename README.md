@@ -1,3 +1,31 @@
-# New project
+[![logo](https://user-images.githubusercontent.com/937328/52721449-9b1b2b80-2fa1-11e9-8f10-84dd86eb652b.png)](https://ueno.co/?utm_source=github&utm_campaign=ueno-next-starter)
+<br /><br />
+![banner](https://user-images.githubusercontent.com/937328/52721448-9b1b2b80-2fa1-11e9-9d4d-e2312ba7ea17.png)
+<br /><br />
+[![about](https://user-images.githubusercontent.com/937328/51540139-999c8e80-1e4d-11e9-866d-284657a34744.png)](https://ueno.co/contact/?utm_source=github&utm_campaign=ueno-next-starter)
+<br /><br />
 
-This project was bootstrapped with `create-ueno-app`
+## Ueno Next Starter
+
+This starter kit is based on `create-next-app` and add couple of features that we are using on all of our projects.
+
+- Server side rendering
+- Code splitting
+- CSS modules
+- SASS support
+- Typescript
+
+## Installation
+
+Install [create-ueno-app](https://github.com/ueno-llc/create-ueno-app):
+
+```bash
+npm install -g create-ueno-app
+yarn global add create-ueno-app
+```
+
+Create your app:
+
+```bash
+create-ueno-app next my-app
+```
