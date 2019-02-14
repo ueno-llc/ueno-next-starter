@@ -21,7 +21,7 @@
     "@zeit/next-typescript": "1.1.1",
     "express": "4.16.4",
     "gsap": "2.0.2",
-    "gsap-tools": "1.0.8",
+    "gsap-tools": "1.0.9",
     "lodash": "4.17.11",
     "next": "8.0.1",
     "react": "16.8.1",
