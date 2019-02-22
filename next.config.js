@@ -9,11 +9,9 @@ module.exports = withTypescript(
       importLoaders: 1,
       localIdentName: "[local]___[hash:base64:5]",
     },
-    webpack(config, options) {
-      const classNamesLoader = require.resolve('classnames-loader');
-
-      const styleRules = config.module.rules.filter(rule =>
-        rule.test.test('file.scss') || rule.test.test('file.sass'));
+    webpack(config) {
+      const classNamesLoader = require.resolve('next-classnames-loader');
+      const styleRules = config.module.rules.filter(rule => rule.test.test('file.scss') || rule.test.test('file.sass'));
 
       styleRules.forEach(styleRule => {
         if (styleRule.use && styleRule.use.indexOf(classNamesLoader) === -1) {
@@ -22,6 +20,7 @@ module.exports = withTypescript(
       });
 
       config.resolve = config.resolve || {};
+
       config.resolve.modules = [
         path.join(__dirname, 'src'),
         path.join(__dirname, 'node_modules'),
