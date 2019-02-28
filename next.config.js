@@ -8,10 +8,17 @@ const images = require('next-images');
 const reactSvg = require('next-react-svg');
 
 const nextConfig = {
+  serverRuntimeConfig: {
+    /*
+     * Will only be available on the server side
+     * Use `import { config } from 'utils/config';`
+     */
+  },
+
   publicRuntimeConfig: {
     /*
-     * Add your .env variables you want to expose on client side then
-     * use `import { config } from 'utils/config';` to use your env var
+     * Will be available on both server and client
+     * Use `import { config } from 'utils/config';`
      */
   },
 
