@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const path = require('path');
 const sass = require('@zeit/next-sass');
 const typescript = require('@zeit/next-typescript');
@@ -6,6 +8,20 @@ const images = require('next-images');
 const reactSvg = require('next-react-svg');
 
 const nextConfig = {
+  serverRuntimeConfig: {
+    /*
+     * Will only be available on the server side
+     * Use `import { config } from 'utils/config';`
+     */
+  },
+
+  publicRuntimeConfig: {
+    /*
+     * Will be available on both server and client
+     * Use `import { config } from 'utils/config';`
+     */
+  },
+
   webpack(config) {
     const classNamesLoader = require.resolve('next-classnames-loader');
     const styleRules = config.module.rules.filter(rule => rule.test.test('file.scss') || rule.test.test('file.sass'));
