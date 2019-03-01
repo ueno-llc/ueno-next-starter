@@ -4,7 +4,7 @@ import * as next from 'next';
 const { PORT, NODE_ENV } = process.env;
 const port = PORT ? parseInt(PORT, 10) : 3000;
 const dev = NODE_ENV !== 'production';
-const app = next({ dev });
+const app = next({ dev, dir: './src' });
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {

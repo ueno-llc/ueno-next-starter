@@ -10,6 +10,17 @@ const images = require('next-images');
 const reactSvg = require('next-react-svg');
 
 const nextConfig = {
+  exportPathMap() {
+    /**
+     * You define your static routes and dynamic routes here
+     */
+
+    return {
+      '/': { page: '/' },
+      '/about': { page: '/about' },
+    };
+  },
+
   serverRuntimeConfig: {
     /*
      * Will only be available on the server side

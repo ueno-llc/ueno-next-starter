@@ -42,4 +42,5 @@ create-ueno-app next my-app
   You gonna have:
   - Change `src/components/link/Link.tsx` with [Link.tsx](https://github.com/ueno-llc/create-ueno-app/blob/master/overwrites/next/Link.tsx)
   - Add `src/utils/config.ts` with [config.ts](https://github.com/ueno-llc/create-ueno-app/blob/master/overwrites/next/config.ts)
+  - Add `src/pages/_app.tsx` with [_app.tsx](https://github.com/ueno-llc/create-ueno-app/blob/master/overwrites/next/_app.ts)
 </details>
