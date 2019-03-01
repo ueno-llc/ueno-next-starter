@@ -11,10 +11,9 @@ const reactSvg = require('next-react-svg');
 
 const nextConfig = {
   exportPathMap() {
-    /**
+    /*
      * You define your static routes and dynamic routes here
      */
-
     return {
       '/': { page: '/' },
       '/about': { page: '/about' },
