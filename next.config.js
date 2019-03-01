@@ -1,3 +1,5 @@
+// @ts-ignore
+
 const path = require('path');
 const sass = require('@zeit/next-sass');
 const typescript = require('@zeit/next-typescript');
