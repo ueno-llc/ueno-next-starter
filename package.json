@@ -17,9 +17,9 @@
     "Jérémy Barbet <jeremgraph@gmail.com>"
   ],
   "scripts": {
-    "dev": "node server.js",
-    "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "dev": "nodemon",
+    "build": "next build && tsc --project tsconfig.server.json",
+    "start": "cross-env NODE_ENV=production node build/index.js",
     "lint": "npm run tslint && npm run stylelint",
     "tslint": "tslint --fix 'src/**/*.{ts,tsx}' -p .",
     "stylelint": "stylelint 'src/**/*.scss' --syntax scss"
@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "7.2.3",
+    "@types/express": "4.16.1",
     "@types/gsap": "1.20.1",
     "@types/lodash": "4.14.119",
     "@types/next": "7.0.6",
@@ -52,11 +53,14 @@
     "@ueno/stylelint-config": "1.1.2",
     "@ueno/tslint-config": "1.0.3",
     "autoprefixer": "9.4.5",
+    "cross-env": "5.2.0",
     "next-classnames-loader": "1.0.1",
     "node-sass": "4.11.0",
+    "nodemon": "1.18.10",
     "postcss-csso": "3.0.0",
     "stylelint": "9.10.0",
     "svg-react-loader": "0.4.6",
+    "ts-node": "8.0.2",
     "tslint": "5.12.1",
     "tslint-react": "3.6.0",
     "typescript": "3.3.1"
