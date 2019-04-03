@@ -7,6 +7,7 @@ const sass = require('@zeit/next-sass');
 const typescript = require('@zeit/next-typescript');
 const plugins = require('next-compose-plugins');
 const images = require('next-images');
+const fonts = require('next-fonts');
 const reactSvg = require('next-react-svg');
 
 const nextConfig = {
@@ -57,5 +58,6 @@ module.exports = plugins([
   [images, { exclude: path.resolve(__dirname, 'src/assets/svg') }],
   [reactSvg, { include: path.resolve(__dirname, 'src/assets/svg') }],
 
+  fonts,
   typescript,
 ], nextConfig);
