@@ -26,7 +26,7 @@ const nextConfig = {
   },
 
   webpack(config) {
-    const classNamesLoader = require.resolve('next-classnames-loader');
+    const classNamesLoader = require.resolve('classnames-loader');
     const styleRules = config.module.rules.filter(rule => rule.test.test('file.scss') || rule.test.test('file.sass'));
 
     styleRules.forEach(styleRule => {
