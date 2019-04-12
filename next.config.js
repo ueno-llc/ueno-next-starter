@@ -7,6 +7,7 @@ const sass = require('@zeit/next-sass');
 const typescript = require('@zeit/next-typescript');
 const plugins = require('next-compose-plugins');
 const images = require('next-images');
+const videos = require('next-videos');
 const fonts = require('next-fonts');
 const reactSvg = require('next-react-svg');
 
@@ -26,6 +27,15 @@ const nextConfig = {
   },
 
   webpack(config) {
+    const classNamesLoader = require.resolve('next-classnames-loader');
+    const styleRules = config.module.rules.filter(rule => rule.test.test('file.scss') || rule.test.test('file.sass'));
+
+     styleRules.forEach(styleRule => {
+      if (styleRule.use && styleRule.use.indexOf(classNamesLoader) === -1) {
+        styleRule.use.splice(0, 0, classNamesLoader);
+      }
+    });
+
     config.resolve = config.resolve || {};
 
     config.resolve.modules = [
@@ -42,15 +52,7 @@ module.exports = plugins([
     cssModules: true,
     cssLoaderOptions: {
       importLoaders: 1,
-      localIdentName: "[local]___[hash:base64:5]",
-    },
-    webpack: (config) => {
-      config.module.rules.unshift({
-        test: /\.scss$/,
-        use: 'next-classnames-loader',
-      });
-
-      return config;
+      localIdentName: '[local]___[hash:base64:5]',
     },
   }],
 
@@ -58,5 +60,6 @@ module.exports = plugins([
   [reactSvg, { include: path.resolve(__dirname, 'src/assets/svg') }],
 
   fonts,
+  videos,
   typescript,
 ], nextConfig);

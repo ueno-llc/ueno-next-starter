@@ -37,6 +37,7 @@
     "next-fonts": "0.17.0",
     "next-images": "1.1.0",
     "next-react-svg": "1.0.0",
+    "next-videos": "1.0.1",
     "react": "16.8.4",
     "react-dom": "16.8.4",
     "react-helmet": "5.2.0"

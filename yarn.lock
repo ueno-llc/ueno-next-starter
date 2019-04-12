@@ -5382,6 +5382,14 @@ next-server@8.0.3:
     send "0.16.1"
     url "0.11.0"
 
+next-videos@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/next-videos/-/next-videos-1.0.1.tgz#a00705a46967d7fbed91c7b57bf3d526229bb099"
+  integrity sha512-yU/QUXWJVctZN3v8gLWhKb7iE8X9aXkBxNbW8iM2UAZz72espji3Q9KDTU5QFlEnly07Jd4AZoifHL/NoUDKtg==
+  dependencies:
+    file-loader "^3.0.1"
+    url-loader "^1.1.2"
+
 next@8.0.3:
   version "8.0.3"
   resolved "https://registry.yarnpkg.com/next/-/next-8.0.3.tgz#7f27172e9441aacb21b04aaaaa663af43aceea3b"
