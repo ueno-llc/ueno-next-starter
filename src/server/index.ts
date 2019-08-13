@@ -1,20 +1,24 @@
-import * as express from 'express';
-import * as next from 'next';
+import express from 'express';
+import next from 'next';
+import path from 'path';
 
 const { PORT, NODE_ENV } = process.env;
 const port = PORT ? parseInt(PORT, 10) : 3000;
 const dev = NODE_ENV !== 'production';
-const app = next({ dev });
+const app = next({
+  dir: path.join(__dirname, '..'),
+  dev,
+});
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
   const server = express();
 
-  server.get('*', (req: express.Request, res: express.Response) => {
+  server.get('*', (req, res) => {
     return handle(req, res);
   });
 
-  server.listen(port, (err: express.Errback) => {
+  server.listen(port, err => {
     if (err) {
       throw err;
     }
