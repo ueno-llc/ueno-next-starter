@@ -1,8 +1,9 @@
+import { Container } from 'components/container/Container';
+import { Column, Row } from 'components/grid';
 import React from 'react';
 import styled from 'styled-components';
-import { mediaWidth, responsiveFont } from '../../styles/utils';
-import { Container } from '../container/Container';
-import { Column, Row } from '../grid';
+import { responsiveFont } from 'styles/utils';
+import { breakpoints, variables } from 'styles/variables';
 
 interface BlockTextProps {
   heading: string;
@@ -11,14 +12,16 @@ interface BlockTextProps {
 
 const Block = styled.div`
   padding: 60px 0;
-  @media (min-width: ${mediaWidth.sm}) {
+
+  @media (min-width: ${breakpoints.lg}) {
     padding: 180px 0;
   }
 `;
 
 const Heading = styled.h3`
   margin-bottom: 10px;
-  font-family: ${props => props.theme.font.family};
+  font-family: ${variables.font.family};
+
   ${responsiveFont(16, 18)}
 `;
 
@@ -32,6 +35,7 @@ const Description = styled.p`
     font-weight: 400;
     color: #000;
     transition: 200ms opacity ease-in-out;
+
     &:hover {
       opacity: 0.5;
     }

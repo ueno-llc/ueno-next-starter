@@ -1,6 +1,10 @@
+import { Container } from 'components/container/Container';
+import { math } from 'polished';
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Container } from '../container/Container';
+import { breakpoints, variables } from 'styles/variables';
+
+const { gutter, segmentPadding, pageLimit } = variables;
 
 interface SegmentProps {
   children: React.ReactNode;
@@ -8,34 +12,33 @@ interface SegmentProps {
 }
 
 const paddingTop = value => css`
-  padding-top: ${value}px;
+  padding-top: ${value};
   @supports (--css: variables) {
-    padding-top: calc(${value}px * var(--scale-element));
+    padding-top: calc(${value} * var(--scale-element));
   }
 `;
 
 const paddingBottom = value => css`
-  padding-bottom: ${value}px;
+  padding-bottom: ${value};
   @supports (--css: variables) {
-    padding-bottom: calc(${value}px * var(--scale-element));
+    padding-bottom: calc(${value} * var(--scale-element));
   }
 `;
 
 const SegmentEl = styled.div`
   flex-grow: 1;
 
-  ${props => paddingTop(props.theme.gutter * 3)}
-  ${props => paddingBottom(props.theme.gutter * 3)}
+  ${paddingTop(math(`${gutter} * 3px`))}
+  ${paddingBottom(math(`${gutter} * 3px`))}
 
-  @media (min-width: ${props => props.theme.breakpoints.sm.width}) {
-    ${props => paddingTop(props.theme.segmentPadding / props.theme.pageLimit)}
-    ${props =>
-      paddingBottom(props.theme.segmentPadding / props.theme.pageLimit)}
+  @media (min-width: ${breakpoints.sm}) {
+    ${paddingTop(math(`${segmentPadding} / ${pageLimit()}`))}
+    ${paddingBottom(math(`${segmentPadding} / ${pageLimit()}`))}
   }
 
-  @media (min-width: ${props => props.theme.pageLimit}) {
-    ${props => paddingTop(props.theme.segmentPadding)}
-    ${props => paddingBottom(props.theme.segmentPadding)}
+  @media (min-width: ${variables.pageLimit}) {
+    ${paddingTop(segmentPadding)}
+    ${paddingBottom(segmentPadding)}
   }
 `;
 

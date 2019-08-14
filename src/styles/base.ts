@@ -1,9 +1,15 @@
 import { createGlobalStyle, css } from 'styled-components';
+import { fonts } from './fonts';
+import { resetStyles } from './reset';
 import { responsiveFont } from './utils';
+import { variables } from './variables';
 
 // stylelint-disable selector-type-no-unknown
-export const BaseStyles = createGlobalStyle`
+export const Styles = createGlobalStyle`
   ${css`
+    ${resetStyles}
+    ${fonts}
+
     @-ms-viewport {
       width: device-width;
     }
@@ -19,22 +25,21 @@ export const BaseStyles = createGlobalStyle`
     --scale-element: 1;
     --scale-font: 1;
 
-    ${props =>
-      props.theme.verticalBreakpoints.map(
-        ({ height, scale }) => css`
-          @media (max-height: ${height}px) {
-            --scale-element: ${scale};
-            --scale-font: ${scale};
-          }
-        `
-      )}
+    ${variables.verticalBreakpoints.map(
+      ({ height, scale }) => css`
+        @media (max-height: ${height}) {
+          --scale-element: ${scale};
+          --scale-font: ${scale};
+        }
+      `
+    )}
   }
 
   html,
   body {
     min-height: 100vh;
 
-    background-color: ${(props: any) => props.theme.colors.background}
+    background-color: ${variables.colors.background};
   }
 
   html {
@@ -63,12 +68,12 @@ export const BaseStyles = createGlobalStyle`
 
     margin: 0;
 
-    font-family: ${(props: any) => props.theme.font.family};
-    line-height: ${(props: any) => props.theme.font.lineHeight};
+    font-family: ${variables.font.family};
+    line-height: ${variables.font.lineHeight};
     /* iOS on orientation change */
     text-size-adjust: 100%;
 
-    color: ${(props: any) => props.theme.colors.font};
+    color: ${variables.colors.font};
   }
 
   img {
@@ -83,7 +88,7 @@ export const BaseStyles = createGlobalStyle`
   select {
     &::placeholder {
       opacity: 1;
-      color: ${(props: any) => props.theme.colors.placeholder};
+      color: ${variables.colors.placeholder};
     }
   }
 `;

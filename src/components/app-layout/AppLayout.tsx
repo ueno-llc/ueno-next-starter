@@ -1,18 +1,16 @@
+import Dribbble from 'assets/svg/dribbble.svg';
+import Facebook from 'assets/svg/facebook.svg';
+import Github from 'assets/svg/github.svg';
+import Instagram from 'assets/svg/instagram.svg';
+import Linkedin from 'assets/svg/linkedin.svg';
+import Twitter from 'assets/svg/twitter.svg';
+import Logo from 'assets/svg/ueno-logo.svg';
+import { Footer } from 'components/footer/Footer';
+import { Header } from 'components/header/Header';
+import { HeaderLink } from 'components/header/HeaderLink';
 import React from 'react';
 import styled from 'styled-components';
-import Dribbble from '../../assets/svg/dribbble.svg';
-import Facebook from '../../assets/svg/facebook.svg';
-import Github from '../../assets/svg/github.svg';
-import Instagram from '../../assets/svg/instagram.svg';
-import Linkedin from '../../assets/svg/linkedin.svg';
-import Twitter from '../../assets/svg/twitter.svg';
-import Logo from '../../assets/svg/ueno-logo.svg';
-import { BaseStyles } from '../../styles/base';
-import { FontStyles } from '../../styles/fonts';
-import { ResetStyles } from '../../styles/reset';
-import { Footer } from '../footer/Footer';
-import { Header } from '../header/Header';
-import { HeaderLink } from '../header/HeaderLink';
+import { Styles } from 'styles/base';
 
 const Layout = styled.div`
   display: block;
@@ -22,9 +20,7 @@ const Layout = styled.div`
 export function AppLayout({ children }) {
   return (
     <>
-      <ResetStyles />
-      <FontStyles />
-      <BaseStyles />
+      <Styles />
       <Layout>
         <Header>
           <HeaderLink name="about" href="/about" />

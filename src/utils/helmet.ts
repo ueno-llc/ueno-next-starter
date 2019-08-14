@@ -1,5 +1,5 @@
-import Favicon from '../assets/images/favicon.png';
-import Share from '../assets/images/share.png';
+import Favicon from 'assets/images/favicon.png';
+import Share from 'assets/images/share.png';
 
 const title = 'Create Ueno App';
 const description = 'The easiest and fastest way to create new projects.';

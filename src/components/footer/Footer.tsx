@@ -1,6 +1,6 @@
+import { Container } from 'components/container/Container';
 import React from 'react';
 import styled from 'styled-components';
-import { Container } from '../container/Container';
 
 interface Social {
   icon: React.ReactNode;

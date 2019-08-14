@@ -1,4 +1,3 @@
-// @ts-ignore
 require('dotenv').config();
 
 const path = require('path');
@@ -9,36 +8,28 @@ const fonts = require('next-fonts');
 const reactSvg = require('next-react-svg');
 
 const nextConfig = {
-  serverRuntimeConfig: {
-    /*
-     * Will only be available on the server side
-     * Use `import { config } from 'utils/config';`
-     */
-  },
+  // server only
+  serverRuntimeConfig: {},
 
-  publicRuntimeConfig: {
-    /*
-     * Will be available on both server and client
-     * Use `import { config } from 'utils/config';`
-     */
-  },
+  // client and server
+  publicRuntimeConfig: {},
 
-  // Use for dynamic path generation:
-  // async exportPathMap() {
-  //   return {
-  //     '/': { page: '/' },
-  //   };
-  // },
-
+  // where to put built server
   distDir: '../.next',
+
+  // create directories for html files
   exportTrailingSlash: true,
 
   webpack(config) {
+    config.resolve = config.resolve || {};
+    config.resolve.modules = [
+      path.join(__dirname, 'src'),
+      path.join(__dirname, 'node_modules'),
+    ];
+
     return config;
   },
 };
-
-console.log('Next Config!');
 
 module.exports = plugins(
   [

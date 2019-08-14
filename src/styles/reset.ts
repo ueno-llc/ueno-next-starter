@@ -1,6 +1,7 @@
-import { createGlobalStyle } from 'styled-components';
+import { css } from 'styled-components';
 
-export const ResetStyles = createGlobalStyle`
+// prettier-ignore
+export const resetStyles = css`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, hr, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,

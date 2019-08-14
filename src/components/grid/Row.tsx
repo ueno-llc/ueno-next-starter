@@ -1,7 +1,7 @@
 import { AlignItemsProperty, JustifyContentProperty } from 'csstype';
-import { get } from 'lodash';
 import { math } from 'polished';
 import styled from 'styled-components';
+import { variables } from 'styles/variables';
 
 interface RowProps {
   align?: JustifyContentProperty;
@@ -19,8 +19,6 @@ export const Row = styled.div<RowProps>`
   align-items: ${props => props.valign || 'stretch'};
   justify-content: ${props => props.align || 'flex-start'};
 
-  margin-left: ${props =>
-    math(`${props.gutter || get(props, 'theme.gutter', 30)}/-2px`)};
-  margin-right: ${props =>
-    math(`${props.gutter || get(props, 'theme.gutter', 30)}/-2px`)};
+  margin-left: ${props => math(`${props.gutter || variables.gutter}/-2px`)};
+  margin-right: ${props => math(`${props.gutter || variables.gutter}/-2px`)};
 `;

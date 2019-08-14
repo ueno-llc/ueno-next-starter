@@ -25,7 +25,7 @@ const HighlightColor = styled.span`
 
 export function Highlight({ children }) {
   return children.split(' ').map((word, index, words) => (
-    <HighlightItem>
+    <HighlightItem key={index}>
       <HighlightText isFirst={words.length > 1 && index === 0}>
         {word}
       </HighlightText>

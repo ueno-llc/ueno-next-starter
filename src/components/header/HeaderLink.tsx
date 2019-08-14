@@ -1,7 +1,7 @@
 import NextLink from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
-import { mediaWidth } from '../../styles/utils';
+import { breakpoints } from 'styles/variables';
 
 interface LinkProps {
   name: string;
@@ -34,7 +34,7 @@ const Icon = styled.div`
       fill: #404040;
     }
 
-    @media (min-width: ${mediaWidth.md}) {
+    @media (min-width: ${breakpoints.md}) {
       top: 3px;
     }
   }
@@ -55,8 +55,8 @@ export function HeaderLink({ name, href, icon }: LinkProps) {
   }
 
   return (
-    <NextLink>
-      <LinkElement href={href}>
+    <NextLink href={href}>
+      <LinkElement>
         {icon && <Icon>{icon}</Icon>}
         {name}
       </LinkElement>

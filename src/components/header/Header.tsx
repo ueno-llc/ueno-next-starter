@@ -1,9 +1,9 @@
+import StarterLogo from 'assets/svg/starter-logo.svg';
+import { Container } from 'components/container/Container';
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
-import StarterLogo from '../../assets/svg/starter-logo.svg';
-import { mediaWidth, variables } from '../../styles/utils';
-import { Container } from '../container/Container';
+import { breakpoints, variables } from 'styles/variables';
 
 const HeaderRoot = styled.header`
   display: block;
@@ -22,7 +22,7 @@ const Logo = styled(StarterLogo)`
   height: 16px;
   width: auto;
 
-  @media (min-width: ${mediaWidth.md}) {
+  @media (min-width: ${breakpoints.md}) {
     height: 18px;
   }
 `;

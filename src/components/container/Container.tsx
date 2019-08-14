@@ -1,17 +1,18 @@
 import { math } from 'polished';
 import styled, { css } from 'styled-components';
+import { breakpoints, variables } from 'styles/variables';
 
-function breakpointStyles(
-  pageWidth: number,
-  { width, gutter }: { width: number; gutter: number }
-) {
-  return css`
-    @media (min-width: ${width}px) {
-      padding-left: ${gutter}px;
-      padding-right: ${gutter}px;
-      max-width: ${math(`${pageWidth} + ${width}`)}px;
-    }
-  `;
+function breakpointStyles(key: string) {
+  return () => {
+    const { width, gutter } = variables.breakpoints[key];
+    return css`
+      @media (min-width: ${width}) {
+        padding-left: ${gutter};
+        padding-right: ${gutter};
+        max-width: ${math(`${variables.pageWidth} + ${width}`)};
+      }
+    `;
+  };
 }
 
 export const Container = styled.div`
@@ -19,19 +20,17 @@ export const Container = styled.div`
 
   margin: 0 auto;
 
-  padding-left: ${props => props.theme.breakpoints.sm.gutter}px;
-  padding-right: ${props => props.theme.breakpoints.sm.gutter}px;
+  padding-left: ${variables.gutter};
+  padding-right: ${variables.gutter};
 
-  max-width: ${props =>
-    math(`${props.theme.pageWidth} + ${props.theme.breakpoints.sm.gutter}`)}px;
+  max-width: ${math(`${variables.pageWidth} + ${variables.gutter}`)};
 
-  @media (min-width: ${props => props.theme.breakpoints.sm.width}px) {
-    max-width: ${props =>
-      math(`${props.theme.pageWidth} + ${props.theme.breakpoints.sm.width}`)}px;
+  @media (min-width: ${breakpoints.sm}) {
+    max-width: ${math(
+      `${variables.pageWidth} + ${variables.breakpoints.sm.gutter}`
+    )};
   }
 
-  ${props =>
-    breakpointStyles(props.theme.pageWidth, props.theme.breakpoints.md)}
-  ${props =>
-    breakpointStyles(props.theme.pageWidth, props.theme.breakpoints.lg)}
+  ${breakpointStyles('md')}
+  ${breakpointStyles('lg')}
 `;
