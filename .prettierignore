@@ -1,0 +1,6 @@
+build
+dist
+coverage
+.next
+node_modules
+.log

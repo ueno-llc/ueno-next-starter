@@ -8,13 +8,13 @@ import s from './GridOverlay.scss';
 const LOCAL_STORAGE_KEY_HORIZONTAL = '_uenoDevtoolsHorizontalGrid';
 const LOCAL_STORAGE_KEY_VERTICAL = '_uenoDevtoolsVerticalGrid';
 
-interface IGridOverlayProps {
+interface GridOverlayProps {
   columns: number;
   baseline: number;
   button: boolean;
 }
 
-export const GridOverlay = ({ columns, baseline, button }: IGridOverlayProps) => {
+export const GridOverlay = ({ columns, baseline, button }: GridOverlayProps) => {
   const gridOverlayRef = useRef<HTMLDivElement>(null);
   const [isHorizontalVisible, setHorizontal] = useLocalStorage(LOCAL_STORAGE_KEY_HORIZONTAL, false);
   const [isVerticalVisible, setVertical] = useLocalStorage(LOCAL_STORAGE_KEY_VERTICAL, false);

@@ -1,40 +1,14 @@
-import React, { ReactNode } from 'react';
+import NextLink from 'next/link';
+import * as React from 'react';
 
-interface ILinkProps {
-  children?: ReactNode;
+interface LinkProps {
+  children: React.ReactNode;
+  to: string;
   [key: string]: any;
 }
 
-export const Link = ({ children, ...props }: ILinkProps) => {
-  let Component;
-  let isNext = false;
-
-  try {
-    Component = require('next/link');
-    isNext = true;
-  } catch (e) {
-    // noop
-  }
-
-  if (!Component && !isNext) {
-    try {
-      Component = require('gatsby').Link;
-    } catch (e) {
-      // noop
-    }
-  }
-
-  if (!Component && !isNext) {
-    try {
-      Component = require('react-router-dom').Link;
-    } catch (e) {
-      // noop
-    }
-  }
-
-  if (isNext) {
-    return <Component>{children}</Component>;
-  }
-
-  return <Component {...props}>{children}</Component>;
-};
+export const Link = ({ children, to, ...props }: LinkProps) => (
+  <NextLink href={to}>
+    <a {...props}>{children}</a>
+  </NextLink>
+);

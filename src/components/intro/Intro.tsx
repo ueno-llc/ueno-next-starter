@@ -5,11 +5,11 @@ import { Row } from 'components/row/Row';
 
 import s from './Intro.scss';
 
-interface IIntroProps {
+interface IntroProps {
   children: ReactNode;
 }
 
-export const Intro = ({ children }: IIntroProps) => (
+export const Intro = ({ children }: IntroProps) => (
   <Container>
     <div className={s.intro}>
       <Row>

@@ -4,12 +4,12 @@ import { Container } from 'components/container/Container';
 
 import s from './Segment.scss';
 
-interface ISegmentProps {
+interface SegmentProps {
   children: ReactNode;
   container?: boolean;
 }
 
-export const Segment = (props: ISegmentProps) => {
+export const Segment = (props: SegmentProps) => {
   const { children, container } = props;
   const content = container ? <Container>{children}</Container> : children;
 

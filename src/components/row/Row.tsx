@@ -2,8 +2,8 @@ import React, { ReactNode } from 'react';
 
 import s from './Row.scss';
 
-interface IRowProps {
+interface RowProps {
   children: ReactNode;
 }
 
-export const Row = ({ children }: IRowProps) => <div className={s.row}>{children}</div>;
+export const Row = ({ children }: RowProps) => <div className={s.row}>{children}</div>;

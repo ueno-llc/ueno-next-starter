@@ -5,12 +5,12 @@ import { Row } from 'components/row/Row';
 
 import s from './BlockText.scss';
 
-interface IBlockTextProps {
+interface BlockTextProps {
   heading: string;
   description: ReactNode;
 }
 
-export const BlockText = ({ heading, description }: IBlockTextProps) => (
+export const BlockText = ({ heading, description }: BlockTextProps) => (
   <Container>
     <div className={s.block}>
       <Row>

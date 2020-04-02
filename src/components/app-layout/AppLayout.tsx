@@ -11,20 +11,20 @@ import Linkedin from 'assets/svg/linkedin.svg';
 
 import { helmet } from 'utils/helmet';
 import { Header } from 'components/header/Header';
-import { Link as HeaderLink } from 'components/header/Link';
+import { HeaderLink } from 'components/header/HeaderLink';
 import { Footer } from 'components/footer/Footer';
 import { Devtools } from 'components/devtools/Devtools';
 
 import s from './AppLayout.scss';
 
-interface IAppLayoutProps {
+interface AppLayoutProps {
   children: ReactNode;
 }
 
 const isDev = process.env.NODE_ENV === 'development';
 
 // tslint:disable no-default-export
-export default ({ children }: IAppLayoutProps) => (
+export default ({ children }: AppLayoutProps) => (
   <div className={s.layout}>
     <Helmet {...helmet} />
 

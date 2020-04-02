@@ -4,17 +4,17 @@ import { Container } from 'components/container/Container';
 
 import s from './Footer.scss';
 
-interface ISocial {
+interface Social {
   icon: ReactNode;
   to: string;
 }
 
-interface IFooterProps {
+interface FooterProps {
   logo: ReactNode;
-  social: ISocial[];
+  social: Social[];
 }
 
-export const Footer = ({ logo, social }: IFooterProps) => (
+export const Footer = ({ logo, social }: FooterProps) => (
   <div className={s.footer}>
     <Container>
       <div className={s.footer__content}>

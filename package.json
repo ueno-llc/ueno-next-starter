@@ -20,10 +20,10 @@
     "dev": "nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
     "start": "cross-env NODE_ENV=production node build/index.js",
-    "lint": "npm run tslint && npm run stylelint",
+    "lint": "npm run prettier && npm run tslint && npm run stylelint",
     "tslint": "tslint --fix 'src/**/*.{ts,tsx}' -p .",
-    "stylelint": "stylelint 'src/**/*.scss' --syntax scss",
-    "prettier": "prettier --list-different \"{pages,server,src}/**/*.{json,md,js,jsx,ts,tsx}\""
+    "stylelint": "stylelint 'src/**/*.{ts,tsx}'",
+    "prettier": "prettier --list-different '**/*.{ts,tsx,js,jsx,json,md}'"
   },
   "husky": {
     "hooks": {
@@ -39,10 +39,8 @@
     ]
   },
   "stylelint": {
-    "extends": "@ueno/stylelint-config",
-    "ignoreFiles": [
-      "**/*.ts",
-      "**/*.tsx"
+    "extends": [
+      "stylelint-config-recommended"
     ]
   },
   "prettier": {
@@ -68,15 +66,12 @@
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "7.8.3",
     "@types/express": "4.17.4",
-    "@types/gsap": "1.20.2",
     "@types/lodash": "4.14.149",
     "@types/next": "9.0.0",
     "@types/node": "13.9.8",
     "@types/react": "16.9.31",
     "@types/react-dom": "16.9.6",
     "@types/react-helmet": "5.0.15",
-    "@ueno/stylelint-config": "1.1.2",
-    "@ueno/tslint-config": "1.0.8",
     "autoprefixer": "9.7.5",
     "classnames": "2.2.6",
     "cross-env": "7.0.2",
@@ -88,10 +83,11 @@
     "postcss-csso": "4.0.0",
     "prettier": "2.0.2",
     "stylelint": "13.2.1",
+    "stylelint-config-recommended": "3.0.0",
     "svg-react-loader": "0.4.6",
     "ts-node": "8.8.1",
     "tslint": "6.1.1",
-    "tslint-origin-ordered-imports-rule": "1.2.2",
+    "tslint-config-prettier": "1.18.0",
     "tslint-react": "4.2.0",
     "typescript": "3.8.3"
   }

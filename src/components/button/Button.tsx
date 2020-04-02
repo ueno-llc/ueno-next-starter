@@ -4,24 +4,19 @@ import { Link } from 'components/link/Link';
 
 import s from './Button.scss';
 
-interface IButtonProps {
-  to?: string;
-  disabled?: boolean;
+interface ButtonProps {
   children: ReactNode;
-  className?: string;
-  [key: string]: any;
+  href?: string;
+  onClick?(): void;
 }
 
-export const Button = ({ to, children, className, disabled, ...rest }: IButtonProps) => {
-  const passProps = { ...rest };
-  const isLink = typeof to !== 'undefined';
-  const isExternal = isLink && /^((https?:)?\/\/|[0-9a-zA-Z]+:)/.test(to || '');
-
-  passProps.className = s(s.button, className, { disabled });
+export const Button = ({ children, href, onClick }: ButtonProps) => {
+  const isLink = typeof href !== 'undefined';
+  const isExternal = isLink && /^((https?:)?\/\/|[0-9a-zA-Z]+:)/.test(href || '');
 
   if (isExternal) {
     return (
-      <a target="_blank" rel="noopener noreferrer" href={to} {...passProps}>
+      <a className={s.button} target="_blank" rel="noopener noreferrer" href={href}>
         {children}
       </a>
     );
@@ -29,13 +24,15 @@ export const Button = ({ to, children, className, disabled, ...rest }: IButtonPr
 
   if (isLink) {
     return (
-      <Link to={to || '#'} {...passProps}>
+      <Link className={s.button} to={href || '#'}>
         {children}
       </Link>
     );
   }
 
-  passProps.disabled = disabled;
-
-  return <button {...passProps}>{children}</button>;
+  return (
+    <button className={s.button} onClick={onClick}>
+      {children}
+    </button>
+  );
 };
