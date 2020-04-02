@@ -28,7 +28,7 @@ const nextConfig = {
   webpack(config) {
     const classNamesLoader = require.resolve('next-classnames-loader');
 
-    const styleRules = config.module.rules.filter(rule => {
+    const styleRules = config.module.rules.filter((rule) => {
       if (!rule.test) {
         return;
       }
@@ -36,7 +36,7 @@ const nextConfig = {
       return rule.test.test('file.scss') || rule.test.test('file.sass');
     });
 
-     styleRules.forEach(styleRule => {
+    styleRules.forEach((styleRule) => {
       if (styleRule.use && styleRule.use.indexOf(classNamesLoader) === -1) {
         styleRule.use.splice(0, 0, classNamesLoader);
       }
@@ -44,27 +44,30 @@ const nextConfig = {
 
     config.resolve = config.resolve || {};
 
-    config.resolve.modules = [
-      path.join(__dirname, 'src'),
-      path.join(__dirname, 'node_modules'),
-    ];
+    config.resolve.modules = [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules')];
 
     return config;
   },
 };
 
-module.exports = plugins([
-  [sass, {
-    cssModules: true,
-    cssLoaderOptions: {
-      importLoaders: 1,
-      localIdentName: '[local]___[hash:base64:5]',
-    },
-  }],
+module.exports = plugins(
+  [
+    [
+      sass,
+      {
+        cssModules: true,
+        cssLoaderOptions: {
+          importLoaders: 1,
+          localIdentName: '[local]___[hash:base64:5]',
+        },
+      },
+    ],
 
-  [images, { exclude: path.resolve(__dirname, 'src/assets/svg') }],
-  [reactSvg, { include: path.resolve(__dirname, 'src/assets/svg') }],
+    [images, { exclude: path.resolve(__dirname, 'src/assets/svg') }],
+    [reactSvg, { include: path.resolve(__dirname, 'src/assets/svg') }],
 
-  fonts,
-  videos,
-], nextConfig);
+    fonts,
+    videos,
+  ],
+  nextConfig,
+);
