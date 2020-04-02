@@ -21,8 +21,8 @@
     "build": "next build src && tsc --project src/tsconfig.json",
     "start": "cross-env NODE_ENV=production next start build",
     "export": "next export -o ./dist src",
-    "lint": "npm run tslint && npm run stylelint",
-    "tslint": "tslint --fix 'src/**/*.{ts,tsx}' -p .",
+    "lint": "npm run prettier && npm run tslint && npm run stylelint",
+    "tslint": "tslint --fix 'src/**/*.{ts,tsx}' --project src/tsconfig.json",
     "stylelint": "stylelint 'src/**/*.{ts,tsx}'",
     "prettier": "prettier --list-different '**/*.{ts,tsx,js,jsx,json,md}'"
   },

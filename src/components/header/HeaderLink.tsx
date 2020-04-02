@@ -1,6 +1,7 @@
-import NextLink from 'next/link';
 import React from 'react';
+import NextLink from 'next/link';
 import styled from 'styled-components';
+
 import { breakpoints } from 'styles/variables';
 
 interface LinkProps {
@@ -11,8 +12,11 @@ interface LinkProps {
 
 const LinkElement = styled.a`
   display: flex;
+
   margin-left: 40px;
+
   text-decoration: none;
+
   color: #404040;
   transition: 200ms opacity ease-in-out;
 
@@ -28,6 +32,7 @@ const LinkElement = styled.a`
 const Icon = styled.div`
   svg {
     position: relative;
+
     margin-right: 8px;
 
     path {
@@ -40,7 +45,7 @@ const Icon = styled.div`
   }
 `;
 
-export function HeaderLink({ name, href, icon }: LinkProps) {
+export const HeaderLink = ({ name, href, icon }: LinkProps) => {
   const isLink = typeof href !== 'undefined';
   const isExternal = isLink && /^((https?:)?\/\/|[0-9a-zA-Z]+:)/.test(href || '');
 
@@ -61,4 +66,4 @@ export function HeaderLink({ name, href, icon }: LinkProps) {
       </LinkElement>
     </NextLink>
   );
-}
+};

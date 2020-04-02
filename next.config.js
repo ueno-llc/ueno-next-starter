@@ -8,21 +8,20 @@ const fonts = require('next-fonts');
 const reactSvg = require('next-react-svg');
 
 const nextConfig = {
-  // server only
+  // Server only - Use `import { config } from 'utils/config';`
   serverRuntimeConfig: {},
 
-  // client and server
+  // Client and server - Use `import { config } from 'utils/config';`
   publicRuntimeConfig: {},
 
-  // where to put built server
+  // Where to put built server
   distDir: '../.next',
 
-  // create directories for html files
+  // Create directories for html files
   exportTrailingSlash: true,
 
   webpack(config) {
     config.resolve = config.resolve || {};
-
     config.resolve.modules = [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules')];
 
     return config;

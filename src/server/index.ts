@@ -3,7 +3,7 @@ import next from 'next';
 import path from 'path';
 
 const { PORT, NODE_ENV } = process.env;
-const port = PORT ? parseInt(PORT, 10) : 3000;
+const port = PORT ? parseInt(PORT, 10) : 3001;
 const dev = NODE_ENV !== 'production';
 const app = next({
   dir: path.join(__dirname, '..'),

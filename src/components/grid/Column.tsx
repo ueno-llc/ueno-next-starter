@@ -1,9 +1,13 @@
-import { AlignSelfProperty } from 'csstype';
 import { math } from 'polished';
 import styled, { css } from 'styled-components';
-import { variables } from 'styles/variables';
+import { AlignSelfProperty } from 'csstype';
 
-interface StyledTheme {
+import { variables } from 'styles/variables';
+import { getValue } from 'utils/get-value';
+
+type TTheme = IColumnSettings & IStyledTheme;
+
+interface IStyledTheme {
   theme: {
     grid?: {
       gutter?: number;
@@ -11,48 +15,55 @@ interface StyledTheme {
   };
 }
 
-interface ColumnSettings {
-  width?: number;
-  offset?: number | { left?: number; right?: number };
-  offsetRight?: number;
+interface IColumnSettings {
+  width?: number | string;
+  offset?: number | string | { left?: number | string; right?: number | string };
   align?: AlignSelfProperty;
   gutter?: number | string;
 }
 
-interface ColumnProps extends ColumnSettings {
-  sm?: number | ColumnSettings;
-  md?: number | ColumnSettings;
-  lg?: number | ColumnSettings;
+interface IColumnProps extends IColumnSettings {
+  sm?: number | string | IColumnSettings;
+  md?: number | string | IColumnSettings;
+  lg?: number | string | IColumnSettings;
 }
 
-function columnStyles(props: ColumnSettings & StyledTheme) {
-  const offsetLeft = typeof props.offset === 'object' ? props.offset.left : props.offset;
-  const offsetRight = Number.isSafeInteger(props.offsetRight)
-    ? props.offsetRight
-    : typeof props.offset === 'object' && props.offset.right;
+const getMargin = ({ offset }: TTheme) => {
+  const offsetLeft = typeof offset === 'object' ? offset.left : offset;
+  const offsetRight = typeof offset === 'object' ? offset.right : offset;
+  const left = getValue(offsetLeft, 0);
+  const right = getValue(offsetRight, 0);
 
-  return css`
-    align-self: ${props.align || 'stretch'};
+  return {
+    left,
+    right,
+  };
+};
 
-    padding-left: ${math(`${props.gutter || variables.gutter}/2px`)};
-    padding-right: ${math(`${props.gutter || variables.gutter}/2px`)};
+const columnStyles = (props: TTheme) => css`
+  align-self: ${props.align || 'stretch'};
 
-    width: ${math(`${props.width || 1} * 100`)}%;
-    margin-left: ${math(`${offsetLeft || 0} * 100`)}%;
-    margin-right: ${math(`${offsetRight || 0} * 100`)}%;
-  `;
-}
+  padding-left: ${math(`${props.gutter || variables.gutter} / 2px`)};
+  padding-right: ${math(`${props.gutter || variables.gutter} / 2px`)};
+  margin-left: ${getMargin(props).left};
+  margin-right: ${getMargin(props).right};
+
+  width: ${getValue(props.width, 1)};
+`;
 
 // render media queries for (sm, md, lg, etc.)
-function breakpointStyles(props) {
+const breakpointStyles = (props) => {
   const output = [];
+
   for (const breakpointName in variables.breakpoints) {
     if (props[breakpointName]) {
       const breakpoint = props[breakpointName];
+
       const breakpointProps = {
         ...props,
         ...(typeof breakpoint === 'object' ? breakpoint : { width: breakpoint }),
       };
+
       output.push(css`
         @media (min-width: ${variables.breakpoints[breakpointName].width}) {
           ${columnStyles(breakpointProps)}
@@ -62,10 +73,11 @@ function breakpointStyles(props) {
   }
 
   return output;
-}
+};
 
-export const Column = styled.div<ColumnProps>`
+export const Column = styled.div<IColumnProps>`
   flex: none;
+
   ${columnStyles}
   ${breakpointStyles}
 `;

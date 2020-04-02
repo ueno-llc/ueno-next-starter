@@ -1,4 +1,9 @@
-# ueno-sc
+[![logo](https://user-images.githubusercontent.com/937328/52721449-9b1b2b80-2fa1-11e9-8f10-84dd86eb652b.png)](https://ueno.co/?utm_source=github&utm_campaign=ueno-next-starter)
+<br /><br />
+![banner](https://user-images.githubusercontent.com/937328/53875813-52cdb700-3ffd-11e9-8585-665eb28707a6.png)
+<br /><br />
+[![about](https://user-images.githubusercontent.com/937328/51540139-999c8e80-1e4d-11e9-866d-284657a34744.png)](https://ueno.co/contact/?utm_source=github&utm_campaign=ueno-next-starter)
+<br /><br />
 
 ## Ueno Next Starter
 
@@ -6,7 +11,7 @@ This starter kit is based on `create-next-app` and add couple of features that w
 
 - Server side rendering
 - Code splitting
-- Styled component
+- styled-components
 - Typescript
 
 ## Installation
