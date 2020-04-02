@@ -31,7 +31,7 @@ export const Styles = createGlobalStyle`
           --scale-element: ${scale};
           --scale-font: ${scale};
         }
-      `
+      `,
     )}
   }
 

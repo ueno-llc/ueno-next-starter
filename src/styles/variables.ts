@@ -11,8 +11,7 @@ export const variables = {
 
   // page dimensions
   pageWidth: '1290px',
-  pageLimit: () =>
-    math(`${variables.pageWidth} + ${variables.breakpoints.lg.gutter} * 2px`),
+  pageLimit: () => math(`${variables.pageWidth} + ${variables.breakpoints.lg.gutter} * 2px`),
 
   // fonts
   font: {
@@ -51,7 +50,7 @@ export const breakpoints = Object.entries(variables.breakpoints).reduce(
     ...acc,
     [key]: value.width,
   }),
-  {}
+  {},
 ) as {
   [K in keyof typeof variables['breakpoints']]: string;
 };

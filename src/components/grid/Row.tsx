@@ -14,8 +14,7 @@ interface RowProps {
 export const Row = styled.div<RowProps>`
   display: flex;
   flex-wrap: ${(props) => (props.wrap === false ? 'nowrap' : 'wrap')};
-  flex-direction: ${(props) =>
-    props.reverse === true ? 'row-reverse' : 'row'};
+  flex-direction: ${(props) => (props.reverse === true ? 'row-reverse' : 'row')};
 
   align-items: ${(props) => props.valign || 'stretch'};
   justify-content: ${(props) => props.align || 'flex-start'};

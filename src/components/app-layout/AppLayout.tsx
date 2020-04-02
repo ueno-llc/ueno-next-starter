@@ -24,11 +24,7 @@ export function AppLayout({ children }) {
       <Layout>
         <Header>
           <HeaderLink name="about" href="/about" />
-          <HeaderLink
-            name="github"
-            href="https://github.com/ueno-llc"
-            icon={<Github />}
-          />
+          <HeaderLink name="github" href="https://github.com/ueno-llc" icon={<Github />} />
         </Header>
         {children}
         <Footer

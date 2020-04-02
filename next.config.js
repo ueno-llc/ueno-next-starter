@@ -22,10 +22,8 @@ const nextConfig = {
 
   webpack(config) {
     config.resolve = config.resolve || {};
-    config.resolve.modules = [
-      path.join(__dirname, 'src'),
-      path.join(__dirname, 'node_modules'),
-    ];
+
+    config.resolve.modules = [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules')];
 
     return config;
   },
@@ -35,8 +33,9 @@ module.exports = plugins(
   [
     [images, { exclude: path.resolve(__dirname, 'src/assets/svg') }],
     [reactSvg, { include: path.resolve(__dirname, 'src/assets/svg') }],
+
     fonts,
     videos,
   ],
-  nextConfig
+  nextConfig,
 );

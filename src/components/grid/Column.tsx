@@ -26,8 +26,7 @@ interface ColumnProps extends ColumnSettings {
 }
 
 function columnStyles(props: ColumnSettings & StyledTheme) {
-  const offsetLeft =
-    typeof props.offset === 'object' ? props.offset.left : props.offset;
+  const offsetLeft = typeof props.offset === 'object' ? props.offset.left : props.offset;
   const offsetRight = Number.isSafeInteger(props.offsetRight)
     ? props.offsetRight
     : typeof props.offset === 'object' && props.offset.right;
@@ -52,9 +51,7 @@ function breakpointStyles(props) {
       const breakpoint = props[breakpointName];
       const breakpointProps = {
         ...props,
-        ...(typeof breakpoint === 'object'
-          ? breakpoint
-          : { width: breakpoint }),
+        ...(typeof breakpoint === 'object' ? breakpoint : { width: breakpoint }),
       };
       output.push(css`
         @media (min-width: ${variables.breakpoints[breakpointName].width}) {

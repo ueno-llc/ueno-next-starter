@@ -42,8 +42,7 @@ const Icon = styled.div`
 
 export function HeaderLink({ name, href, icon }: LinkProps) {
   const isLink = typeof href !== 'undefined';
-  const isExternal =
-    isLink && /^((https?:)?\/\/|[0-9a-zA-Z]+:)/.test(href || '');
+  const isExternal = isLink && /^((https?:)?\/\/|[0-9a-zA-Z]+:)/.test(href || '');
 
   if (isExternal) {
     return (

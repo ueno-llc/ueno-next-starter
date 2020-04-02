@@ -14,8 +14,7 @@ interface ButtonProps {
 function ButtonElement(props: ButtonProps) {
   const { children, ...passProps } = props;
   const isLink = typeof props.href !== 'undefined';
-  const isExternal =
-    isLink && /^((https?:)?\/\/|[0-9a-zA-Z]+:)/.test(props.href || '');
+  const isExternal = isLink && /^((https?:)?\/\/|[0-9a-zA-Z]+:)/.test(props.href || '');
 
   if (isExternal) {
     return (

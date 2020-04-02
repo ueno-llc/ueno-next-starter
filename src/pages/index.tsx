@@ -17,8 +17,7 @@ export default () => (
       <Highlight>TypeScript</Highlight>,&nbsp;
       <Highlight>SCSS</Highlight>, <Highlight>CSS Modules</Highlight>,{' '}
       <Highlight>React Hooks</Highlight>,&nbsp;
-      <Highlight>root resolver</Highlight>,{' '}
-      <Highlight>code splitting</Highlight> and a lot of love.
+      <Highlight>root resolver</Highlight>, <Highlight>code splitting</Highlight> and a lot of love.
     </Intro>
 
     <Container>
@@ -31,8 +30,8 @@ export default () => (
       heading="Who we are"
       description={
         <>
-          Ueno is a full-service agency, busy designing and building beautiful
-          digital products, brands, and experiences. For more informations go to{' '}
+          Ueno is a full-service agency, busy designing and building beautiful digital products,
+          brands, and experiences. For more informations go to{' '}
           <a href="https://ueno.co" target="_blank" rel="noopener noreferrer">
             ueno.co
           </a>
