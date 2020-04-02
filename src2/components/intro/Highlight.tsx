@@ -8,7 +8,7 @@ const HighlightItem = styled.span`
 const HighlightText = styled.span<{ isFirst?: boolean }>`
   position: relative;
   z-index: 1;
-  padding-right: ${props => (props.isFirst ? 10 : 0)}px;
+  padding-right: ${(props) => (props.isFirst ? 10 : 0)}px;
 `;
 
 const HighlightColor = styled.span`

@@ -47,7 +47,7 @@ export function Footer({ logo, social }: FooterProps) {
             {logo}
           </a>
           <List>
-            {social.map(item => (
+            {social.map((item) => (
               <ListItem key={item.to}>
                 <a href={item.to} target="_blank" rel="noopener noreferrer">
                   {item.icon}

@@ -11,14 +11,14 @@ interface SegmentProps {
   container?: boolean;
 }
 
-const paddingTop = value => css`
+const paddingTop = (value) => css`
   padding-top: ${value};
   @supports (--css: variables) {
     padding-top: calc(${value} * var(--scale-element));
   }
 `;
 
-const paddingBottom = value => css`
+const paddingBottom = (value) => css`
   padding-bottom: ${value};
   @supports (--css: variables) {
     padding-bottom: calc(${value} * var(--scale-element));

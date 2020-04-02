@@ -61,7 +61,7 @@ export const Button = styled(ButtonElement)`
   transition: 180ms;
   transition-property: border-color, background-color, color, opacity;
 
-  ${props =>
+  ${(props) =>
     props.disabled &&
     css`
       cursor: default;

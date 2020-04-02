@@ -14,10 +14,10 @@ export default class App extends NextApp {
         <AppLayout>
           <Head>
             <title>{helmet.title}</title>
-            {helmet.meta.map(item => (
+            {helmet.meta.map((item) => (
               <meta key={item.name || item.property} {...item} />
             ))}
-            {helmet.link.map(item => (
+            {helmet.link.map((item) => (
               <link key={item.href || item.rel} {...item} />
             ))}
           </Head>
