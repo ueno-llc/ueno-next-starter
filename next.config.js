@@ -4,7 +4,6 @@ require('dotenv').config();
 
 const path = require('path');
 const sass = require('@zeit/next-sass');
-const typescript = require('@zeit/next-typescript');
 const plugins = require('next-compose-plugins');
 const images = require('next-images');
 const videos = require('next-videos');
@@ -28,7 +27,14 @@ const nextConfig = {
 
   webpack(config) {
     const classNamesLoader = require.resolve('next-classnames-loader');
-    const styleRules = config.module.rules.filter(rule => rule.test.test('file.scss') || rule.test.test('file.sass'));
+
+    const styleRules = config.module.rules.filter(rule => {
+      if (!rule.test) {
+        return;
+      }
+
+      return rule.test.test('file.scss') || rule.test.test('file.sass');
+    });
 
      styleRules.forEach(styleRule => {
       if (styleRule.use && styleRule.use.indexOf(classNamesLoader) === -1) {
@@ -61,5 +67,4 @@ module.exports = plugins([
 
   fonts,
   videos,
-  typescript,
 ], nextConfig);

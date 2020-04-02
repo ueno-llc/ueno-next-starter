@@ -1,5 +1,5 @@
 import * as express from 'express';
-import * as next from 'next';
+import next from 'next';
 
 const { PORT, NODE_ENV } = process.env;
 const port = PORT ? parseInt(PORT, 10) : 3000;
@@ -10,7 +10,7 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-  server.get('*', (req: express.Request, res: express.Response) => {
+  server.get('*', (req, res) => {
     return handle(req, res);
   });
 
