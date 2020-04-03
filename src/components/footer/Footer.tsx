@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { Container } from 'components/container/Container';
 
 interface Social {
-  icon: React.ReactNode;
+  icon: ReactNode;
   to: string;
 }
 
 interface FooterProps {
-  logo: React.ReactNode;
+  logo: ReactNode;
   social: Social[];
 }
 

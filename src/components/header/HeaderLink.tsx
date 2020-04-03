@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import NextLink from 'next/link';
 import styled from 'styled-components';
 
@@ -7,7 +7,7 @@ import { breakpoints } from 'styles/variables';
 interface LinkProps {
   name: string;
   href: string;
-  icon?: React.ReactNode;
+  icon?: ReactNode;
 }
 
 const LinkElement = styled.a`

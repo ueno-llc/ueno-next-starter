@@ -1,25 +1,28 @@
-import { Container } from 'components/container/Container';
+import React, { ReactNode } from 'react';
 import { math } from 'polished';
-import React from 'react';
 import styled, { css } from 'styled-components';
+
+import { Container } from 'components/container/Container';
 import { breakpoints, variables } from 'styles/variables';
 
 const { gutter, segmentPadding, pageLimit } = variables;
 
 interface SegmentProps {
-  children: React.ReactNode;
+  children: ReactNode;
   container?: boolean;
 }
 
-const paddingTop = (value) => css`
+const paddingTop = (value: string) => css`
   padding-top: ${value};
+
   @supports (--css: variables) {
     padding-top: calc(${value} * var(--scale-element));
   }
 `;
 
-const paddingBottom = (value) => css`
+const paddingBottom = (value: string) => css`
   padding-bottom: ${value};
+
   @supports (--css: variables) {
     padding-bottom: calc(${value} * var(--scale-element));
   }
