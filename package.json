@@ -21,8 +21,8 @@
     "build": "next build && tsc --project tsconfig.server.json",
     "start": "cross-env NODE_ENV=production node build/index.js",
     "lint": "npm run prettier && npm run tslint && npm run stylelint",
-    "tslint": "tslint --fix 'src/**/*.{ts,tsx}' -p .",
-    "stylelint": "stylelint 'src/**/*.{ts,tsx}'",
+    "tslint": "tslint --fix 'src/**/*.{ts,tsx}' --project tsconfig.json",
+    "stylelint": "stylelint 'src/**/*.scss' --syntax scss",
     "prettier": "prettier --list-different '**/*.{ts,tsx,js,jsx,json,md}'"
   },
   "husky": {
