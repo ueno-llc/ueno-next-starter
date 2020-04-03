@@ -35,12 +35,6 @@ You can also cloning this repository but you will have to change and add few fil
 git clone "https://github.com/ueno-llc/ueno-next-starter#master" my-app
 ```
 
-You gonna have:
-
-- Change `src/components/link/Link.tsx` with [Link.tsx](https://github.com/ueno-llc/create-ueno-app/blob/master/overwrites/next/Link.tsx)
-- Add `src/utils/config.ts` with [config.ts](https://github.com/ueno-llc/create-ueno-app/blob/master/overwrites/next/config.ts)
-</details>
-
 ### Branches
 
 We have two branches:
