@@ -14,19 +14,16 @@ This starter kit is based on `create-next-app` and add couple of features that w
 - styled-components
 - Typescript
 
-## Installation
-
-Install [create-ueno-app](https://github.com/ueno-llc/create-ueno-app):
+### Usage with [create-ueno-app](https://github.com/ueno-llc/create-ueno-app):
 
 ```bash
-npm install -g create-ueno-app
-yarn global add create-ueno-app
+npx create-ueno-app cra my-app
 ```
 
-Create your app:
+or
 
 ```bash
-create-ueno-app next my-app
+yarn create ueno-app cra my-app
 ```
 
 <details>
@@ -35,7 +32,7 @@ create-ueno-app next my-app
 You can also cloning this repository but you will have to change and add few files manually.
 
 ```bash
-git clone "https://github.com/ueno-llc/ueno-next-starter#master --recursive" my-app
+git clone "https://github.com/ueno-llc/ueno-next-starter#master" my-app
 ```
 
 You gonna have:
@@ -43,3 +40,12 @@ You gonna have:
 - Change `src/components/link/Link.tsx` with [Link.tsx](https://github.com/ueno-llc/create-ueno-app/blob/master/overwrites/next/Link.tsx)
 - Add `src/utils/config.ts` with [config.ts](https://github.com/ueno-llc/create-ueno-app/blob/master/overwrites/next/config.ts)
 </details>
+
+### Branches
+
+We have two branches:
+
+- `master` supports `sass` styles
+- `styled` branch support `styled-components`
+
+Refers to `create-ueno-app` document for more information on the different usage
