@@ -18,13 +18,13 @@ This starter kit is based on `create-next-app` and add couple of features that w
 ### Usage with [create-ueno-app](https://github.com/ueno-llc/create-ueno-app):
 
 ```bash
-npx create-ueno-app cra my-app
+npx create-ueno-app next my-app
 ```
 
 or
 
 ```bash
-yarn create ueno-app cra my-app
+yarn create ueno-app next my-app
 ```
 
 <details>
