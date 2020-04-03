@@ -4,13 +4,13 @@ import { Link as InternalLink } from 'components/link/Link';
 
 import s from './HeaderLink.scss';
 
-interface LinkProps {
+interface HeaderLinkProps {
   name: string;
   to: string;
   icon?: ReactNode;
 }
 
-export const HeaderLink = ({ name, to, icon }: LinkProps) => {
+export const HeaderLink = ({ name, to, icon }: HeaderLinkProps) => {
   const isLink = typeof to !== 'undefined';
   const isExternal = isLink && /^((https?:)?\/\/|[0-9a-zA-Z]+:)/.test(to || '');
 
