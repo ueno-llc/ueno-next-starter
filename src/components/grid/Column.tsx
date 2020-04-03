@@ -5,9 +5,9 @@ import { AlignSelfProperty } from 'csstype';
 import { variables } from 'styles/variables';
 import { getValue } from 'utils/get-value';
 
-type TTheme = IColumnSettings & IStyledTheme;
+type TTheme = ColumnSettings & StyledTheme;
 
-interface IStyledTheme {
+interface StyledTheme {
   theme: {
     grid?: {
       gutter?: number;
@@ -15,17 +15,17 @@ interface IStyledTheme {
   };
 }
 
-interface IColumnSettings {
+interface ColumnSettings {
   width?: number | string;
   offset?: number | string | { left?: number | string; right?: number | string };
   align?: AlignSelfProperty;
   gutter?: number | string;
 }
 
-interface IColumnProps extends IColumnSettings {
-  sm?: number | string | IColumnSettings;
-  md?: number | string | IColumnSettings;
-  lg?: number | string | IColumnSettings;
+interface ColumnProps extends ColumnSettings {
+  sm?: number | string | ColumnSettings;
+  md?: number | string | ColumnSettings;
+  lg?: number | string | ColumnSettings;
 }
 
 const getMargin = ({ offset }: TTheme) => {
@@ -75,7 +75,7 @@ const breakpointStyles = (props) => {
   return output;
 };
 
-export const Column = styled.div<IColumnProps>`
+export const Column = styled.div<ColumnProps>`
   flex: none;
 
   ${columnStyles}

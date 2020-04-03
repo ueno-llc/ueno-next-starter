@@ -15,7 +15,7 @@ import { Header } from 'components/header/Header';
 import { HeaderLink } from 'components/header/HeaderLink';
 import { Devtools } from 'components/devtools/Devtools';
 
-interface IAppLayoutProps {
+interface AppLayoutProps {
   children: ReactNode;
 }
 
@@ -27,7 +27,7 @@ const Layout = styled.div`
   min-height: 100vh;
 `;
 
-export const AppLayout = ({ children }: IAppLayoutProps) => (
+export const AppLayout = ({ children }: AppLayoutProps) => (
   <>
     <Styles />
 

@@ -4,7 +4,7 @@ import { AlignItemsProperty, JustifyContentProperty } from 'csstype';
 
 import { variables } from 'styles/variables';
 
-interface IRowProps {
+interface RowProps {
   align?: JustifyContentProperty;
   valign?: AlignItemsProperty;
   reverse?: boolean;
@@ -12,7 +12,7 @@ interface IRowProps {
   gutter?: number | string;
 }
 
-export const Row = styled.div<IRowProps>`
+export const Row = styled.div<RowProps>`
   display: flex;
   flex-wrap: ${(props) => (props.wrap === false ? 'nowrap' : 'wrap')};
   flex-direction: ${(props) => (props.reverse === true ? 'row-reverse' : 'row')};
