@@ -30,6 +30,7 @@
   font-size: #{$unitless-min}px;
 
   @if $scale-font-enable == true {
+    // stylelint-disable-next-line
     font-size: calc(#{$unitless-min}px * #{var(--scale-font)});
   }
 
@@ -37,10 +38,12 @@
     font-size: #{$unitless-min}px;
 
     @if $scale-font-enable == true {
+      // stylelint-disable-next-line
       font-size: calc((#{$font-multiplier} * #{100vw} + (#{$font-baseline}px)) * #{var(--scale-font)});
     }
 
     @else {
+      // stylelint-disable-next-line
       font-size: calc((#{$font-multiplier} * #{100vw} + (#{$font-baseline}px)));
     }
   }
@@ -49,6 +52,7 @@
     font-size: #{$unitless-size}px;
 
     @if $scale-font-enable == true {
+      // stylelint-disable-next-line
       font-size: calc(#{$unitless-size}px * #{var(--scale-font)});
     }
   }

@@ -39,9 +39,33 @@
     ]
   },
   "stylelint": {
-    "extends": [
-      "stylelint-config-recommended"
-    ]
+    "extends": "stylelint-config-recommended",
+    "rules": {
+      "at-rule-no-unknown": [
+        true,
+        {
+          "ignoreAtRules": [
+            "if",
+            "else",
+            "mixin",
+            "each",
+            "include",
+            "function",
+            "return",
+            "warn",
+            "for"
+          ]
+        }
+      ],
+      "selector-pseudo-class-no-unknown": [
+        true,
+        {
+          "ignorePseudoClasses": [
+            "global"
+          ]
+        }
+      ]
+    }
   },
   "prettier": {
     "singleQuote": true,
